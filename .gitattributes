@@ -1,0 +1,9 @@
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.bin diff=none
+*.pt diff=none
+*.onnx diff=none
+*.safetensors diff=none
+*.jsonl linguist-generated=true
+tokenizer_config.json diff=none
