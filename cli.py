@@ -50,12 +50,24 @@ def main():
     if args.pdf:
         print(f"\n[+] Scanning PDF: {args.pdf}")
         pdf_recon = extract_from_pdf(args.pdf)
+        if "error" in pdf_recon:
+            if args.json:
+                print(json.dumps({"error": pdf_recon["error"]}, indent=2))
+            else:
+                print(f"[!] {pdf_recon['error']}")
+            return
         results["pdf_recon"] = pdf_recon
         print_recon_results(pdf_recon)
 
     if args.txt:
         print(f"\n[+] Scanning TXT: {args.txt}")
         txt_recon = extract_from_txt(args.txt)
+        if "error" in txt_recon:
+            if args.json:
+                print(json.dumps({"error": txt_recon["error"]}, indent=2))
+            else:
+                print(f"[!] {txt_recon['error']}")
+            return
         results["txt_recon"] = txt_recon
         print_recon_results(txt_recon)
 

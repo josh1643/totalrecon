@@ -2,14 +2,15 @@
 Extraction module for parsing recon data from text, PDFs, and TXT files.
 """
 
-import re
+import re, fitz
 from totalrecon.ai import summarize_recon
 
 def extract_from_text(text):
     domains = re.findall(r"\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}\b", text)
     emails = re.findall(r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", text)
-    s3_buckets = re.findall(r"s3://[^\s]+", text)
-
+    raw_buckets = re.findall(r"s3://[^\s]+", text)
+    s3_buckets = [b.rstrip(").,\u200b") for b in raw_buckets]
+    
     recon_summaries = []
     keywords = [
         "subdomain", "email", "bucket", "domain", "traffic", "exposed",
@@ -34,7 +35,6 @@ def extract_from_text(text):
 
 def extract_from_pdf(path):
     try:
-        import fitz 
         with fitz.open(path) as doc:
             full_text = "".join(page.get_text() for page in doc)
         return extract_from_text(full_text)
