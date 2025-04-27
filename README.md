@@ -8,6 +8,14 @@
 
 ---
 
+## Warnings and Best Practices
+
+**Important:**
+
+This tool utilizes AI to assist with reconnaissance and summarization. While AI can provide valuable insights, **always double-check the output**. AI-generated results may not be 100% accurate and should be reviewed carefully before taking any action. The AI model used here is designed to assist, not replace, human judgment.
+
+---
+
 ## Features
 
 - Extract intelligence from plaintext and PDF files  
