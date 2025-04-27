@@ -1,5 +1,7 @@
 # totalrecon
 
+[![PyPI version](https://img.shields.io/pypi/v/totalrecon?color=brightgreen)](https://pypi.org/project/totalrecon/)
+
 **totalrecon** is a lightweight Python library for passive reconnaissance. It extracts subdomains, emails, and S3 buckets from text and PDF files, and uses a fine-tuned AI model to summarize sensitive infrastructure mentions.
 
 >  Built for red teamers, bug bounty hunters, CTF players, and cyber analysts.
@@ -57,7 +59,7 @@ print(results["recon_summaries"])  # ['Possible backup S3 bucket exposed via dev
 
 ## About the Model
 
-This project uses a fine-tuned `flan-t5-small` model hosted on the Hugging Face Hub:
+This project uses a fine-tuned `FLAN-t5-small` model hosted on the Hugging Face Hub:
 
 🔗 https://huggingface.co/wassermanrjoshua/totalrecon-flan-t5
 
@@ -90,3 +92,7 @@ MIT License — see [`LICENSE`](LICENSE) for full terms.
 ## Author
 
 Created by Joshua Wasserman for real-world recon workflows and open-source tooling.
+
+- GitHub Repository: [https://github.com/josh1643/totalrecon](https://github.com/josh1643/totalrecon)
+
+---
